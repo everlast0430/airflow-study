@@ -1,8 +1,7 @@
 from airflow import DAG
 import pendulum
 import datetime
-from airflow.operators.python import PythonOperator
-from airflow.operators.branch import BaseBranchOperator
+from airflow.operators.python import PythonOperator, BranchPythonOperator
 
 with DAG(
     dag_id='dags_branch_python_operator',
