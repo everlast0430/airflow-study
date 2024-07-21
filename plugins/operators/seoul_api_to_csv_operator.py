@@ -18,7 +18,7 @@ class SeoulApiToCsvOperator(BaseOperator):
         import os
 
         connection = BaseHook.get_connection(self.http_conn_id)
-        self.base_url = f"http://{connection.host}:{connection.port}/{self.endpoint}"
+        self.base_url = f"{connection.host}:{connection.port}/{self.endpoint}"
         # http://openapi.seoul.go.kr:8088/********/json/tbCycleStationInfo
         logging.info(self.base_url)
 
