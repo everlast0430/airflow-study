@@ -55,6 +55,7 @@ class SeoulApiToCsvOperator(BaseOperator):
             request_url = f"{base_url}/{start_row}/{end_row}/{self.base_dt}"
         response = requests.get(request_url, headers)
         logging.info(response)
+        logging.info(response.text)
         contents = json.loads(response.text)
 
         key_nm = list(contents.keys())[0]
