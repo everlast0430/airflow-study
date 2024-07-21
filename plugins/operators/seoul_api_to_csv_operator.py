@@ -44,7 +44,7 @@ class SeoulApiToCsvOperator(BaseOperator):
         import json
 
         headers = {'Content-Type': 'application/json',
-                   'chatset': 'utf-8',
+                   'charset': 'utf-8',
                    'Accept': '*/*'
                    }
 
