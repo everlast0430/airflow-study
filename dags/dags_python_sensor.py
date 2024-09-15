@@ -25,8 +25,8 @@ with DAG(
         try:
             pendulum.from_format(last_date, 'YYYY-MM-DD')
         except:
-        from airflow.exceptions import AirflowException
-        AirflowException(f'{base_dt_col} 컬럼은 YYYY.MM.DD 또는 YYYY/MM/DD 형태가 아닙니다.')
+            from airflow.exceptions import AirflowException
+            AirflowException(f'{base_dt_col} 컬럼은 YYYY.MM.DD 또는 YYYY/MM/DD 형태가 아닙니다.')
 
     today_ymd = kwargs.get('data_interval_end').in_timezone('Asia/Seoul').strftime('%Y-%m-%d')
     if last_date >= today_ymd:
