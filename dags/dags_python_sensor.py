@@ -10,18 +10,18 @@ with DAG(
     catchup=False
 ) as dag:
     def check_api_update(http_conn_id, endpoint, base_dt_col, **kwargs):
-        import reqeusts
+        import requests
         import json
         from dateutil import relativedelta
         connection = BaseHook.get_connection(http_conn_id)
         url = f'http://{connection.host}:{connection.port}/{endpoint}/1/100'
-        response = reqeusts.get(url)
+        response = requests.get(url)
 
         contents = json.loads(response.text)
         key_nm = list(contents.keys())[0]
         row_data = contents.get(key_nm).get('row')
         last_dt = row_data[0].get(base_dt_col)
-        last_date = last_date.replace('.','_').replace('/','-')
+        last_date = last_dt.replace('.','_').replace('/','-')
         try:
             pendulum.from_format(last_date, 'YYYY-MM-DD')
         except:
