@@ -21,7 +21,7 @@ with DAG(
         key_nm = list(contents.keys())[0]
         row_data = contents.get(key_nm).get('row')
         last_dt = row_data[0].get(base_dt_col)
-        last_date = last_dt.replace('.','_').replace('/','-')
+        last_date = last_dt.replace('.','-').replace('/','-')
         try:
             pendulum.from_format(last_date, 'YYYY-MM-DD')
         except:
