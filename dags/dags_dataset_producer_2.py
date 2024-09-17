@@ -3,6 +3,8 @@ from airflow import DAG
 from airflow.operators.bash import BashOperator
 import pendulum
 
+dataset_dags_dataset_producer_2 = Dataset("dags_dataset_producer_2")
+
 with DAG(
     dag_id='dags_dataset_producer_2',
     schedule='0 7 * * *',
