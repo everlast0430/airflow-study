@@ -6,7 +6,7 @@ with DAG(
     dag_id='dags_custom_sensor',
     start_date=pendulum.datetime(2024,4,1,tz="Asia/Seoul"),
     schedule=None,
-    catchup=False
+    catchup=True
 ) as dag:
 
     tb_corona_19_count_status_sensor = SeoulApiDateSensor(

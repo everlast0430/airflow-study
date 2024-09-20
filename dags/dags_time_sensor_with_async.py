@@ -7,7 +7,7 @@ with DAG(
     start_date=pendulum.datetime(2024, 5, 1,0,0,0),
     end_date=pendulum.datetime(2024,5,1,1,0,0),
     schedule='*/10 * * * *',
-    catchup=False
+    catchup=True
 ) as dag:
 
     sync_sensor = DateTimeSensorAsync(
